@@ -14,6 +14,21 @@ Java_com_liu_opencvdemo_utils_NativeUtils_stringFromJNI(
     std::string hello = "Hello from C++";
     return env->NewStringUTF(hello.c_str());
 }
+JNIEXPORT jobject JNICALL Java_com_liu_opencvdemo_utils_NativeUtils_testPio
+        (JNIEnv *env, jclass cls,jobject srcBitmap){
+    Mat mat;
+    BitmapToMat(env, srcBitmap, mat);
+    Point root_points[1][4];
+    root_points[0][0] = Point(10,10);
+    root_points[0][1] = Point(10,200);
+    root_points[0][2] = Point(200,150);
+    root_points[0][3] = Point(210,20);
+    const Point* ppt[1]={root_points[0]};
+    int npt[]={4};
+    fillPoly(mat,ppt,npt,1,Scalar(255));
+    MatToBitmap(env,mat,srcBitmap);
+    return srcBitmap;
+}
 
 JNIEXPORT void JNICALL Java_com_synodata_detection_DetectionNative_cropMirror
         (JNIEnv *env, jobject, jbyteArray jbrg, jint jw, jint jh, jint jleft, jint jtop, jint jrWidth, jint jrHeight, jobject jbitmap){

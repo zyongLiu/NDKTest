@@ -9,19 +9,19 @@ extern "C" {
 #endif
 /*
  * Class:     com_liu_opencvdemo_utils_NativeUtils
- * Method:    stringFromJNII
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_com_liu_opencvdemo_utils_NativeUtils_stringFromJNII
-  (JNIEnv *, jobject);
-
-/*
- * Class:     com_liu_opencvdemo_utils_NativeUtils
  * Method:    stringFromJNI
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_liu_opencvdemo_utils_NativeUtils_stringFromJNI
   (JNIEnv *, jclass);
+
+/*
+ * Class:     com_liu_opencvdemo_utils_NativeUtils
+ * Method:    testPio
+ * Signature: (Ljava/lang/Object;)Ljava/lang/Object;
+ */
+JNIEXPORT jobject JNICALL Java_com_liu_opencvdemo_utils_NativeUtils_testPio
+  (JNIEnv *, jclass, jobject);
 
 #ifdef __cplusplus
 }
